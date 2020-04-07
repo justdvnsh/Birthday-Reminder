@@ -43,7 +43,7 @@ public class AddBirthdayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 LocalDateTime localDateTime = LocalDateTime.of(date.getYear(), date.getMonth() + 1, date.getDayOfMonth(), time.getHour(), time.getMinute());
                 Log.i("TIME AND DATE ->", localDateTime.toString());
-                Event event = new Event(name.getText().toString(), description.getText().toString(), LocalDateTime.now());
+                Event event = new Event(name.getText().toString(), description.getText().toString(), localDateTime);
                 viewModel.insertBirthday(event);
                 finish();
             }

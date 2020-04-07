@@ -17,8 +17,8 @@ import static androidx.room.OnConflictStrategy.REPLACE;
 @Dao
 public interface EventDAO {
 
-    @Query("SELECT * FROM  " + Event.TABLE_NAME + " WHERE " + Event.DATE_FIELD + " > :minDate")
-    LiveData<List<Event>> getEvents(LocalDateTime minDate);
+    @Query("SELECT * FROM  " + Event.TABLE_NAME)
+    LiveData<List<Event>> getEvents();
 
     @Insert(onConflict = REPLACE)
     void addEvent(Event event);

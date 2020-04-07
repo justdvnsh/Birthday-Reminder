@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.divyansh.birthdayreminder.R;
 import com.divyansh.birthdayreminder.data.Entities.Event;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
@@ -37,10 +38,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         Event event = birthdayList.get(position);
-        holder.postedOn.setText(event.getDate().toString());
-        holder.title.setText(event.getName());
-        holder.description.setText(event.getDescription());
-        holder.daysRemaning.setText(String.valueOf(event.getDaysUntil()));
+        holder.postedOn.setText("Posted on - " + LocalDateTime.now().toString());
+        holder.title.setText("Name Of the Event - " + event.getName());
+        holder.description.setText("Event Description - " + event.getDescription());
+        holder.daysRemaning.setText(String.valueOf(event.getDaysUntil()) + " Days Remaining !");
     }
 
     @Override

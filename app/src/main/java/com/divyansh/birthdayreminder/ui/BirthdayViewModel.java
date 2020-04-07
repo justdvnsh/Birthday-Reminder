@@ -2,6 +2,7 @@ package com.divyansh.birthdayreminder.ui;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -23,8 +24,9 @@ public class BirthdayViewModel extends AndroidViewModel {
         super(application);
 
         db = EventDatabase.getInstance(this.getApplication());
+        Log.i("db", db.toString());
 
-        birthdayList = db.eventDAO().getEvents(LocalDateTime.now());
+        birthdayList = db.eventDAO().getEvents();
     }
 
     public LiveData<List<Event>> getAllEvents(){
