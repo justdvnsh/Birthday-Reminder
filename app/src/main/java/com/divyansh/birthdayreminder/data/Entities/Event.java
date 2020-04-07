@@ -16,22 +16,21 @@ public class Event {
     public static final String DATE_FIELD = "date";
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    public int id;
     private String name;
     private String description;
     @ColumnInfo(name = DATE_FIELD)
     private LocalDateTime date;
 
-    public Event(int id, String name, String description, LocalDateTime date) {
-        this.id = id;
+    public Event(String name, String description, LocalDateTime date) {
         this.name = name;
         this.description = description;
         this.date = date;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
